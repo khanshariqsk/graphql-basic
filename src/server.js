@@ -9,11 +9,21 @@ const PORT = 9800;
 
 const schema = makeExecutableSchema({
   typeDefs: loadFilesSync(path.join(__dirname, "**/*.graphql")),
+  resolvers: {
+    Query: {
+      users: (parent) => {
+        return parent.users;
+      },
+      profiles: (parent) => {
+        return parent.profiles;
+      },
+    },
+  },
 });
 
 const root = {
-  Users: require("./users/user.model"),
-  Profiles: require("./profiles/profile.model"),
+  users: require("./users/user.model"),
+  profiles: require("./profiles/profile.model"),
 };
 
 app.use(
@@ -26,5 +36,5 @@ app.use(
 );
 
 app.listen(PORT, () => {
-  console.log("graphlql server is running on port", PORT);
+  console.log("graphql server is running on port", PORT);
 });
