@@ -8,8 +8,19 @@ const getProfiles = () => {
   return profiles;
 };
 
+const getProfilesByAge = (args) => {
+  return profiles.filter(profile => profile.age === args.age);
+};
+
+const addProfile = (args) => {
+  const profile = {name:args.name, age:args.age}
+  profiles.push(profile);
+  return profile;
+};
+
 module.exports = {
   getProfiles,
-  
+  getProfilesByAge,
+  addProfile
 };
  
