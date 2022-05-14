@@ -6,19 +6,9 @@ const { makeExecutableSchema } = require("@graphql-tools/schema");
 const { loadFilesSync } = require("@graphql-tools/load-files");
 
 const PORT = 9800;
-
 const schema = makeExecutableSchema({
   typeDefs: loadFilesSync(path.join(__dirname, "**/*.graphql")),
-  resolvers: {
-    Query: {
-      users: (parent) => {
-        return parent.users;
-      },
-      profiles: (parent) => {
-        return parent.profiles;
-      },
-    },
-  },
+  resolvers: loadFilesSync(path.join(__dirname, "**/*.resolvers.js"))
 });
 
 const root = {
