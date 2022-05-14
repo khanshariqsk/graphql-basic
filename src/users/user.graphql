@@ -1,0 +1,7 @@
+type Query {
+  Users: [User]
+}
+
+type User {
+  email: String!
+}

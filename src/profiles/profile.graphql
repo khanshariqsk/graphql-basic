@@ -1,0 +1,8 @@
+type Query {
+  Profiles: [Profile]
+}
+
+type Profile {
+  name: String!
+  age: Int!
+}
