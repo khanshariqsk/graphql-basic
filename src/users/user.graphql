@@ -1,5 +1,6 @@
 type Query {
-  users: [User]
+  users: [User],
+  userByEmail(email:String!): [User]
 }
 
 type User {

@@ -6,6 +6,10 @@ const users = [
 const getUsers = ()=>{
     return users;
 }
+const getUserByEmail = (args)=>{
+    return users.filter(user=>user.email === args.email);
+}
 module.exports = {
-  getUsers
+  getUsers,
+  getUserByEmail
 }
